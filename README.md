@@ -78,30 +78,30 @@ console.log(result);
 // Terminal methods
 const sum = await S.from([1, 2, 3, 4])
   .reduce((acc, x) => acc + x, 0);
-// 10
+  // 10
 
 const found = await S.from([1, 2, 3, 4, 5])
   .find(x => x > 3);
-// 4
+  // 4
 
 const hasEven = await S.from([1, 3, 5, 6])
   .some(x => x % 2 === 0);
-// true
+  // true
 
 const allPositive = await S.from([1, 2, 3])
   .every(x => x > 0);
-// true
+  // true
 
 // scan - like reduce but emits intermediate values
 const runningTotals = await S.from([1, 2, 3])
   .scan((acc, x) => acc + x, 0)
   .toArray();
-// [1, 3, 6]
+  // [1, 3, 6]
 
 const withInitial = await S.from([1, 2, 3])
   .scan((acc, x) => acc + x, 10)
   .toArray();
-// [11, 13, 16]
+  // [11, 13, 16]
 ```
 
 
@@ -129,7 +129,7 @@ const result = await S.from([1, 2, 3])
   .filter(x => x > 1)
   .map(x => x * 2)
   .toArray();
-// [4, 6]
+  // [4, 6]
 
 // Works with async iterables too
 async function* generate() {
@@ -141,7 +141,7 @@ async function* generate() {
 const asyncResult = await S.from(generate())
   .map(x => x * 10)
   .toArray();
-// [10, 20, 30]
+  // [10, 20, 30]
 ```
 
 ### `.map`
@@ -157,13 +157,13 @@ map<U> (fn:(item:T) => U|Promise<U>):EnhancedStream<U>
 const doubled = await S.from([1, 2, 3])
   .map(x => x * 2)
   .toArray();
-// [2, 4, 6]
+  // [2, 4, 6]
 
 // Async mapping works too
 const parsed = await S.from(['1', '2', '3'])
   .map(async s => JSON.parse(s))
   .toArray();
-// [1, 2, 3]
+  // [1, 2, 3]
 ```
 
 ### `.filter`
@@ -194,8 +194,8 @@ const result = await S.from([1, 2, 3])
   .forEach(x => console.log('processing', x))
   .map(x => x * 10)
   .toArray();
-// logs: processing 1, processing 2, processing 3
-// [10, 20, 30]
+  // logs: processing 1, processing 2, processing 3
+  // [10, 20, 30]
 ```
 
 ### `.skip`
@@ -210,7 +210,7 @@ skip (n:number):EnhancedStream<T>
 const skipped = await S.from([1, 2, 3, 4, 5])
   .skip(2)
   .toArray();
-// [3, 4, 5]
+  // [3, 4, 5]
 ```
 
 ### `.take`
@@ -289,7 +289,7 @@ reduce<U> (fn:(acc:U, item:T) => U|Promise<U>, initial:U):Promise<U>
 ```ts
 const sum = await S.from([1, 2, 3, 4])
   .reduce((acc, x) => acc + x, 0);
-// 10
+  // 10
 ```
 
 ### `.find`
@@ -304,7 +304,7 @@ find (predicate:(item:T) => boolean|Promise<boolean>):Promise<T|undefined>
 ```ts
 const found = await S.from([1, 2, 3, 4, 5])
   .find(x => x > 3);
-// 4
+  // 4
 ```
 
 ### `.some`
@@ -319,7 +319,7 @@ some (predicate:(item:T) => boolean|Promise<boolean>):Promise<boolean>
 ```ts
 const hasEven = await S.from([1, 3, 5, 6])
   .some(x => x % 2 === 0);
-// true
+  // true
 ```
 
 ### `.every`
@@ -334,7 +334,7 @@ every (predicate:(item:T) => boolean|Promise<boolean>):Promise<boolean>
 ```ts
 const allPositive = await S.from([1, 2, 3])
   .every(x => x > 0);
-// true
+  // true
 ```
 
 ### `.toArray`
@@ -349,7 +349,7 @@ toArray ():Promise<T[]>
 const arr = await S.from([1, 2, 3])
   .map(x => x * 2)
   .toArray();
-// [2, 4, 6]
+  // [2, 4, 6]
 ```
 
 ### `.collect`
@@ -366,12 +366,12 @@ collect ():Promise<any>
 // Strings are joined
 const text = await S.from(['hello', ' ', 'world'])
   .collect();
-// 'hello world'
+  // 'hello world'
 
 // Typed arrays are concatenated
 const buf = await S.from([new Uint8Array([1, 2]), new Uint8Array([3])])
   .collect();
-// Uint8Array [1, 2, 3]
+  // Uint8Array [1, 2, 3]
 ```
 
 ### `.toStream`
