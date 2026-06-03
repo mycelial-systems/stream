@@ -1,4 +1,4 @@
-# @substrate-system/stream
+# stream
 [![tests](https://img.shields.io/github/actions/workflow/status/substrate-system/stream/nodejs.yml?style=flat-square)](https://github.com/substrate-system/stream/actions/workflows/nodejs.yml)
 [![types](https://img.shields.io/npm/types/@substrate-system/stream?style=flat-square)](https://www.npmjs.com/package/@substrate-system/stream)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)

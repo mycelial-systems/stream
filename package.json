@@ -40,7 +40,7 @@
     "build-esm:node": "esbuild src/node.ts --format=esm --platform=node --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --sourcemap",
     "build-esm:min": "esbuild src/index.ts --format=esm --keep-names --bundle --tsconfig=tsconfig.build.json --minify --out-extension:.js=.min.js --outdir=./dist --sourcemap",
     "build-esm:node:min": "esbuild src/node.ts --format=esm --platform=node --keep-names --bundle --tsconfig=tsconfig.build.json --minify --out-extension:.js=.min.js --outdir=./dist --sourcemap",
-    "build-example": "mkdir -p ./public && rm -rf ./public/* && VITE_DEBUG_MODE=staging vite --mode staging --base=\"/repo-name\" build",
+    "build-example": "mkdir -p ./public && rm -rf ./public/* && VITE_DEBUG_MODE=staging vite --mode staging --base=\"/stream\" build",
     "build-docs": "typedoc ./src/index.ts",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && npm run build-cjs:node && npm run build-esm && npm run build-esm:node && npm run build-esm:min && npm run build-esm:node:min && npm run build-cjs:min && npm run build-cjs:node:min",
     "start": "vite",
